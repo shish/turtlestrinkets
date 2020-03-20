@@ -1,0 +1,106 @@
+/*
+@solid_bg: #222;
+@trans_bg: rgba(32, 32, 32, 0.9);
+// @trans_bg: url("/img/misc/bg1-dark.jpg") no-repeat center center fixed #222;
+@page_bg: url("/img/misc/bg1-light.jpg") no-repeat center center fixed #fff;
+@border: #000;
+@text: #ccc;
+/*/
+@solid_bg: #B0EDEE;
+@trans_bg: fadeout(@solid_bg, 10%);
+// @trans_bg: url("/img/misc/bg1-light.jpg") no-repeat center center fixed @solid_bg;
+//@page_bg: url("/img/misc/bg1-base.jpg") no-repeat center center fixed @solid_bg;
+@page_bg: url("/img/misc/bg1-base.jpg") no-repeat center center fixed #222;
+@border: #222;
+@text: #000;
+// */
+
+HTML {
+    background: @page_bg;
+    background-size: cover;
+    overflow-y: scroll;
+}
+
+BODY {
+  background-color: transparent;
+}
+
+.thumbnail {
+    opacity: 0.0;
+    transition: opacity 1s;
+}
+
+.thumbnail, .footer {
+    background: @solid_bg;
+    border-color: @border;
+    border-width: 2px;
+}
+.thumbnail IMG {
+    border-radius: 2px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border-top-width: 1px;
+}
+
+.thumbnail {
+    color: @text;
+    border: 2px solid @border;
+    background: @trans_bg;
+    background-size: cover;
+    padding: 4px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+
+    H2 {
+        text-align: center;
+    }
+
+    .description {
+        padding: 4px;
+    }
+
+  P:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+A.thumbnail,
+A.thumbnail:hover {
+    color: @text;
+    text-decoration: none;
+}
+.thumbnail>IMG {
+    border: 1px solid @border;
+    border-radius: 4px;
+}
+
+.thumbnail > H1:first-child {
+    margin-top: 10px;
+}
+.thumbnail > H2:first-child {
+    margin-top: 4px;
+}
+
+INPUT, TEXTAREA {
+    color: #000000;
+    width: 100%;
+}
+
+/*
+on md / lg devices, we can assume an external keyboard,
+so we can assume there is plenty of screen space for a
+large input box
+*/
+TEXTAREA {
+  height: 50px;
+}
+@media (min-width: 992px) {
+    TEXTAREA {
+        height: 200px;
+    }
+}
